@@ -16,13 +16,6 @@ export const metadata: Metadata = {
       "Math Graduate Student at the Ohio State University",
       url: "https://anna-kis-portfolio.vercel.app/",
     siteName: "Anna Kis Portfolio",
-    /*images: [
-      {
-        url: "https://chronark.com/og.png",
-        width: 1920,
-        height: 1080,
-      },
-    ],*/
     locale: "en-US",
     type: "website",
   },

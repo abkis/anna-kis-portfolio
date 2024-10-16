@@ -3,6 +3,8 @@ import { Inter } from "@next/font/google";
 import LocalFont from "@next/font/local";
 import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
+import { Background } from "./components/layout";
+import { Navigation } from "./components/nav";
 
 export const metadata: Metadata = {
   title: {
@@ -55,15 +57,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
-      <head>
-        <Analytics />
-      </head>
-      <body
-        className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined
-          }`}
-      >
-        {children}
-      </body>
+        <head>
+          <Analytics />
+        </head>
+        <body
+          className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined
+            }`}
+        >
+          <Background particles={true}>
+            <Navigation />
+            {children}
+          </Background>
+        </body>
     </html>
   );
 }

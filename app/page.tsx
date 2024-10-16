@@ -9,7 +9,7 @@ const navigation = [
 
 export default function Home() {
   return (
-    <Background particles={true}>
+    <>
       <nav className="my-16 animate-fade-in">
         <ul className="flex items-center justify-center gap-4">
           {navigation.map((item) => (
@@ -29,7 +29,13 @@ export default function Home() {
       </h1>
 
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-    </Background>
+    
+      <div className="my-16 text-center animate-fade-in">
+        <h2 className="text-sm text-zinc-500 ">
+        Math Grad Student at the University of Ohio
+        </h2>
+      </div>
+    </>
   );
 
 }

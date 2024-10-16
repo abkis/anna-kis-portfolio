@@ -16,7 +16,7 @@ export const  Background = ({particles, color, children} : {particles : Boolean,
     classinfo = classinfo.concat(grad);
 
     return(
-        <div className={classinfo}>
+        <div className={classinfo} style={{textAlign:"center"}}>
             {particles ? 
                   <Particles
                   className="absolute inset-0 -z-10 animate-fade-in"

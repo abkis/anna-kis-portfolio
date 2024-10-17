@@ -3,9 +3,24 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 
-export const Navigation: React.FC = () => {
+export const nav = [
+    { name: "About", href: "/about" },
+    {name: "Research", href: "/research"},
+    {name: "Work Experience", href: "/work"},
+    { name: "Contact", href: "/contact" }
+];
+
+export const Navigation: React.FC = ({back}:{back?: Boolean}) => {
 	const ref = useRef<HTMLElement>(null);
 	const [isIntersecting, setIntersecting] = useState(true);
+	const [arrow, setArrow] = useState(false);
+	
+	// display back arrow only if on non-home page
+	useEffect(() => {
+	  if (typeof window !== 'undefined') {
+		setArrow(window.location.pathname !== '/');
+	  }
+	}, []);
 
 	useEffect(() => {
 		if (!ref.current) return;
@@ -28,26 +43,27 @@ export const Navigation: React.FC = () => {
 			>
 				<div className="container flex flex-row-reverse items-center justify-between p-6 mx-auto">
 					<div className="flex justify-between gap-8">
-						<Link
-							href="/about"
-							className="duration-200 text-zinc-400 hover:text-zinc-100"
-						>
-							About
-						</Link>
-						<Link
-							href="/contact"
-							className="duration-200 text-zinc-400 hover:text-zinc-100"
-						>
-							Contact
-						</Link>
+						{nav.map((item) => (
+							<Link
+							key={item.href}
+							href={item.href}
+							className="text-sm duration-500 text-zinc-500 hover:text-zinc-300"
+							>
+							{item.name}
+							</Link>
+						))}
 					</div>
+					{
+						arrow?
+						<Link
+							href="/"
+							className="duration-200 text-zinc-300 hover:text-zinc-100"
+						>
+							<ArrowLeft className="w-6 h-6 " />
+						</Link> :
+						null
+					}
 
-					<Link
-						href="/"
-						className="duration-200 text-zinc-300 hover:text-zinc-100"
-					>
-						<ArrowLeft className="w-6 h-6 " />
-					</Link>
 				</div>
 			</div>
 		</header>

@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
 import { Background } from "./components/layout";
 import { Navigation } from "./components/nav";
+import { useRouter } from 'next/navigation';
 
 export const metadata: Metadata = {
   title: {
@@ -55,6 +56,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
   return (
     <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
         <head>

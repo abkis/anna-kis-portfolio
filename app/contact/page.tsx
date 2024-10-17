@@ -6,16 +6,16 @@ import { Card } from "../components/card";
 
 const socials = [
 	{
-		icon: <Mail size={20} />,
-		href: "mailto:kis.6@osu.edu",
-		label: "Email",
-		handle: "kis.6@osu.edu",
-	},
-	{
 		icon: <Github size={20} />,
 		href: "https://github.com/abkis",
 		label: "Github",
 		handle: "abkis",
+	},
+	{
+		icon: <Mail size={20} />,
+		href: "mailto:kis.6@osu.edu",
+		label: "Email",
+		handle: "kis.6@osu.edu",
 	},
 	{
 		icon: <Linkedin size={20} />,
@@ -25,7 +25,7 @@ const socials = [
 	},
 ];
 
-export default function Example() {
+export default function Contact() {
 	return (
 		<>
 		<div className="container flex items-center justify-center min-h-screen px-4 mx-auto">

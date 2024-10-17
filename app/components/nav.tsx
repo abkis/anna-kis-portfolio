@@ -2,6 +2,7 @@
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
+import { usePathname } from 'next/navigation';
 
 export const nav = [
     { name: "About", href: "/about" },
@@ -14,13 +15,13 @@ export const Navigation: React.FC = ({back}:{back?: Boolean}) => {
 	const ref = useRef<HTMLElement>(null);
 	const [isIntersecting, setIntersecting] = useState(true);
 	const [arrow, setArrow] = useState(false);
-	
+	const pathname = usePathname();
+
 	// display back arrow only if on non-home page
 	useEffect(() => {
-	  if (typeof window !== 'undefined') {
-		setArrow(window.location.pathname !== '/');
-	  }
-	}, []);
+		console.log(pathname)
+	  	setArrow(pathname !== '/');
+	}, [pathname]);
 
 	useEffect(() => {
 		if (!ref.current) return;

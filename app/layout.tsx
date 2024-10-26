@@ -5,7 +5,7 @@ import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
 import { Background } from "./components/layout";
 import { Navigation } from "./components/nav";
-import { useRouter } from 'next/navigation';
+import { Provider } from "@/components/ui/provider"
 
 export const metadata: Metadata = {
   title: {
@@ -58,7 +58,7 @@ export default function RootLayout({
 }) {
 
   return (
-    <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
+    <html lang="en" className={[inter.variable, calSans.variable].join(" ")} suppressHydrationWarning>
         <head>
           <Analytics />
         </head>
@@ -66,10 +66,12 @@ export default function RootLayout({
           className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined
             }`}
         >
-          <Background particles={true}>
-            <Navigation />
-            {children}
-          </Background>
+          <Provider>
+            <Background particles={true}>
+              <Navigation />
+              {children}
+            </Background>
+          </Provider>
         </body>
     </html>
   );

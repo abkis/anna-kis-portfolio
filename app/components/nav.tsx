@@ -3,6 +3,8 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { usePathname } from 'next/navigation';
+import { FaCircle } from "react-icons/fa"; 
+import { Button, Icon } from "@chakra-ui/react";
 
 export const nav = [
     { name: "About", href: "/about" },
@@ -11,15 +13,57 @@ export const nav = [
     { name: "Contact", href: "/contact" }
 ];
 
-export const Navigation: React.FC = ({back}:{back?: Boolean}) => {
+const modes = [
+    {
+      name: "dark",
+      bg: "bg-gradient-to-tl from-black via-zinc-600/20 to-black",
+      text: "text-white",
+    },
+	{
+		name: "blue",
+		bg: "bg-gradient-to-r from-blue-400 to-indigo-500",
+		text: "text-white",
+	},
+    {
+      name: "sunset",
+      bg: "bg-gradient-to-r from-yellow-400 to-red-500",
+      text: "text-gray-900",
+    },
+    {
+      name: "forest",
+      bg: "bg-gradient-to-r from-green-500 to-teal-600",
+      text: "text-white",
+    },
+	{
+		name: "pink",
+		bg: "bg-gradient-to-tl from-white via-grey to-magenta",
+		text: "text-white",
+	},
+	{
+		name: "ocean",
+		bg: "bg-gradient-to-r from-blue-500 to-cyan-600",
+		text: "text-white",
+	}
+  ];
+
+
+export const Navigation: React.FC = () => {
 	const ref = useRef<HTMLElement>(null);
 	const [isIntersecting, setIntersecting] = useState(true);
 	const [arrow, setArrow] = useState(false);
 	const pathname = usePathname();
+	const [currentModeIndex, setCurrentModeIndex] = useState(0);
+
+	// toggle display mode 
+	const toggleMode = () => {
+	  setCurrentModeIndex((prevIndex) => (prevIndex + 1) % modes.length);
+	};
+  
+	const currentMode = modes[currentModeIndex];
+	const buttonMode = modes[(currentModeIndex + 1) % modes.length];
 
 	// display back arrow only if on non-home page
 	useEffect(() => {
-		console.log(pathname)
 	  	setArrow(pathname !== '/');
 	}, [pathname]);
 
@@ -53,6 +97,10 @@ export const Navigation: React.FC = ({back}:{back?: Boolean}) => {
 							{item.name}
 							</Link>
 						))}
+						<Button
+							onClick={toggleMode}
+							className={buttonMode.bg.concat("rounded-full text-white focus:outline-none transform transition-transform duration-300 hover:scale-110 active:scale-90")}
+							/>
 					</div>
 					{
 						arrow?
@@ -64,7 +112,6 @@ export const Navigation: React.FC = ({back}:{back?: Boolean}) => {
 						</Link> :
 						null
 					}
-
 				</div>
 			</div>
 		</header>

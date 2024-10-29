@@ -127,7 +127,7 @@ export const FileUploadList = forwardRef<HTMLUListElement, FileUploadListProps>(
 type Assign<T, U> = Omit<T, keyof U> & U
 
 interface FileInputProps extends Assign<ButtonProps, RecipeProps<"input">> {
-  placeholder?: React.ReactNode
+  placeholder?: string; //React.ReactNode
 }
 
 export const FileInput = forwardRef<HTMLButtonElement, FileInputProps>(

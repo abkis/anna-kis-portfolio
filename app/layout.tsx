@@ -3,9 +3,10 @@ import { Inter } from "@next/font/google";
 import LocalFont from "@next/font/local";
 import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
-import { Background } from "./components/layout";
+import { Background } from "./components/background";
 import { Navigation } from "./components/nav";
 import { Provider } from "@/components/ui/provider"
+import { ThemeProvider } from "./components/theme";
 
 export const metadata: Metadata = {
   title: {
@@ -41,6 +42,7 @@ export const metadata: Metadata = {
     shortcut: "/letterA.png",
   },
 };
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -67,10 +69,12 @@ export default function RootLayout({
             }`}
         >
           <Provider>
-            <Background particles={true}>
-              <Navigation />
-              {children}
-            </Background>
+            <ThemeProvider>
+              <Background particles={true}>
+                <Navigation />
+                {children}
+              </Background>
+            </ThemeProvider>
           </Provider>
         </body>
     </html>

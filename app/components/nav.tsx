@@ -63,7 +63,7 @@ export const Navigation: React.FC = () => {
 							<Link
 							key={item.href}
 							href={item.href}
-							className = {`text-sm duration-500 ${theme.subText}`}
+							className = {`text-sm duration-500 ${theme.subText} ${theme.subHover}`}
 							>
 							{item.name}
 							</Link>

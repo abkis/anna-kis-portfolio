@@ -87,7 +87,7 @@ export const Navigation: React.FC = () => {
 				}`}
 			>
 				<div className="container flex flex-row-reverse items-center justify-between p-6 mx-auto">
-					<div className="flex justify-between gap-8">
+					<div className="flex justify-between items-center gap-8">
 						{nav.map((item) => (
 							<Link
 							key={item.href}
@@ -100,6 +100,7 @@ export const Navigation: React.FC = () => {
 						<Button
 							onClick={toggleMode}
 							className={buttonMode.bg.concat("rounded-full text-white focus:outline-none transform transition-transform duration-300 hover:scale-110 active:scale-90")}
+							style={{ width: '30px', height: '30px' }}
 							/>
 					</div>
 					{

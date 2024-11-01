@@ -1,11 +1,9 @@
-
-
-export default function Work() {
+export default function ProjectsLayout({
+	children,
+}: { children: React.ReactNode }) {
 	return (
-		<div className="container flex items-center justify-center min-h-screen px-4 mx-auto">
-			<h1 style={{ fontSize: "80%", color: "white" }}>
-				Work info
-			</h1>
+		<div className="relative min-h-screen bg-gradient-to-tl from-zinc-900 via-zinc-400/10 to-zinc-900 ">
+			{children}
 		</div>
 	);
 }

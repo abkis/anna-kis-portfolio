@@ -9,7 +9,10 @@ export const  Background = ({particles, children} : {particles : Boolean, childr
     const classinfo = `flex flex-col items-center justify-center w-screen h-screen overflow-hidden ${theme.bg} ${theme.text}`;
 
     return(
-        <div className={classinfo} style={{textAlign:"center"}}>
+        <div className={classinfo} style={{textAlign:"center", display: "flex",
+                                        flexDirection: "column", overflowY: "auto",
+                                        overflowX: "clip", msOverflowStyle: "none",
+                                        scrollbarWidth: "none"}}>
             {particles ? 
                   <Particles
                   className="absolute inset-0 -z-10 animate-fade-in"

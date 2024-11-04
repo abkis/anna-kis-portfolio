@@ -60,19 +60,23 @@ export default function RootLayout({
 }) {
 
   return (
-    <html lang="en" className={[inter.variable, calSans.variable].join(" ")} suppressHydrationWarning>
+    <html lang="en" className={[inter.variable, calSans.variable].join(" ")} suppressHydrationWarning style={{height:"100%"}}>
         <head>
           <Analytics />
         </head>
         <body
           className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined
             }`}
+          style={{ height: "100%", overflowY: "auto", overflowX: "clip", msOverflowStyle: "none",
+            scrollbarWidth: "none"}}
         >
           <Provider>
             <ThemeProvider>
+            <Navigation />
               <Background particles={true}>
-                <Navigation />
-                {children}
+                <div className="main" style={{flexGrow: 1, paddingTop: "40rem"}}>
+                  {children}
+                </div>
               </Background>
             </ThemeProvider>
           </Provider>

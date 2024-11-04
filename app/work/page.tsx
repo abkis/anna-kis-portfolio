@@ -44,14 +44,15 @@ export default async function ProjectsPage() {
   return (
     <div className="relative pb-16">
       <Navigation />
-      <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
-        <div className="max-w-2xl mx-auto lg:mx-0">
+      <div className="lg:px-8 md:space-y-16 md:pt-24 lg:pt-32"
+          /*style={{maxWidth: "80%"}}*/>
+        <div className="lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Work Experience
           </h2>
-          <p className="mt-4 text-zinc-400">
-            I've had the opportunity to work in a variety of internships. Below you'll find some information 
-            about these experiences. To download my full resume please click <a href="../../public/resume/Anna Kis Resume.pdf" download="Anna Kis Resume.pdf"> here </a>.
+          <p className="mt-4 text-zinc-400" style={{textAlign: "center"}}>
+            Both during my undergraduate degree, as well as after graduation, I worked for a variety of companies.
+            Below you'll find some information about these experiences. To download my full resume please click <a href="/resume/Anna Kis Resume.pdf" download="Anna Kis Resume.pdf" style={{color: "white"}}> here </a>.
           </p>
         </div>
         <div className="w-full h-px bg-zinc-800" />
@@ -61,7 +62,7 @@ export default async function ProjectsPage() {
             <Link href={`/projects/${featured.slug}`}>
               <article className="relative w-full h-full p-4 md:p-8">
                 <div className="flex items-center justify-between gap-2">
-                  <div className="text-xs text-zinc-100">
+                  <div className="text-xs text-zinc-100" >
                   {featured.start ? (
                     <div>
                         <time dateTime={new Date(featured.start).toISOString()}>

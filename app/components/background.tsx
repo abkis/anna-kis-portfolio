@@ -12,7 +12,8 @@ export const  Background = ({particles, children} : {particles : Boolean, childr
         <div className={classinfo} style={{textAlign:"center", display: "flex",
                                         flexDirection: "column", overflowY: "auto",
                                         overflowX: "clip", msOverflowStyle: "none",
-                                        scrollbarWidth: "none"}}>
+                                        margin: "auto",
+                                        scrollbarWidth: "none", maxWidth: "100%"}}>
             {particles ? 
                   <Particles
                   className="absolute inset-0 -z-10 animate-fade-in"

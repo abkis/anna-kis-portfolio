@@ -1,11 +1,11 @@
 import Link from "next/link";
 import React from "react";
-import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import { Article } from "../components/article";
 import { Redis } from "@upstash/redis";
 import { Eye } from "lucide-react";
 import { Project } from "../../types/types";
+import "../../global.css";
 
 const redis = Redis.fromEnv();
 
@@ -42,15 +42,13 @@ export default async function ProjectsPage() {
   const others = projects.filter((p: Project) => p.priority >= 4);
 
   return (
-    <div className="relative pb-16">
-      <Navigation />
-      <div className="lg:px-8 md:space-y-16 md:pt-24 lg:pt-32"
-          /*style={{maxWidth: "80%"}}*/>
+    <div className="relative pb-16" style={{paddingTop: "40rem"}}>
+      <div className="lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
         <div className="lg:mx-0">
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tightsm:text-4xl main-text" style={{color: "var(--text-color)"}}>
             Work Experience
           </h2>
-          <p className="mt-4 text-zinc-400" style={{textAlign: "center"}}>
+          <p className="sub-text" style={{textAlign: "center"}}>
             Both during my undergraduate degree, as well as after graduation, I worked for a variety of companies.
             Below you'll find some information about these experiences. To download my full resume please click <a href="/resume/Anna Kis Resume.pdf" download="Anna Kis Resume.pdf" style={{color: "white"}}> here </a>.
           </p>

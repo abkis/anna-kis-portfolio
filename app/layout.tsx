@@ -74,7 +74,7 @@ export default function RootLayout({
             <ThemeProvider>
             <Navigation />
               <Background particles={true}>
-                <div className="main" style={{flexGrow: 1, paddingTop: "40rem", marginLeft: "10%", marginRight: "10%"}}>
+                <div className="main" style={{flexGrow: 1, marginLeft: "10%", marginRight: "10%"}}>
                   {children}
                 </div>
               </Background>

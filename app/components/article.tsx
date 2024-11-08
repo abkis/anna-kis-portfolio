@@ -1,6 +1,7 @@
 import type { Project } from "../../types/types";
 import Link from "next/link";
 import { Eye, View } from "lucide-react";
+import "../../global.css";
 
 type Props = {
 	project: Project;
@@ -12,7 +13,7 @@ export const Article: React.FC<Props> = ({ project, views }) => {
 		<Link href={`/projects/${project.slug}`}>
 			<article className="p-4 md:p-8">
 				<div className="flex justify-between gap-2 items-center">
-					<span className="text-xs duration-1000 text-zinc-200 group-hover:text-white group-hover:border-zinc-200 drop-shadow-orange">
+					<span className="text-xs duration-1000 group-hover:text-white group-hover:border-zinc-200 drop-shadow-orange" style={{color: "var(--text-color)"}}>
 					{project.start ? (
                     <div>
                         <time dateTime={new Date(project.start).toISOString()}>
@@ -40,10 +41,10 @@ export const Article: React.FC<Props> = ({ project, views }) => {
 						{Intl.NumberFormat("en-US", { notation: "compact" }).format(views)}
 					</span>
 				</div>
-				<h2 className="z-20 text-xl font-medium duration-1000 lg:text-3xl text-zinc-200 group-hover:text-white font-display">
+				<h2 className="z-20 text-xl font-medium duration-1000 lg:text-3xl group-hover:text-white font-display" style={{color: "var(--text-color)"}}>
 					{project.name}
 				</h2>
-				<p className="z-20 mt-4 text-sm  duration-1000 text-zinc-400 group-hover:text-zinc-200">
+				<p className="z-20 mt-4 text-sm  duration-1000 group-hover:text-zinc-200" style={{color: "var(--sub-text-color)"}}>
 					{project.content}
 				</p>
 			</article>

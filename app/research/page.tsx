@@ -8,7 +8,7 @@ const redis = Redis.fromEnv();
 
 export const revalidate = 60;
 export default async function ProjectsPage() {
-    const keys = ["project"];
+    const keys = ["research"];
 
     let projects: Project[] = [];
     
@@ -20,12 +20,12 @@ export default async function ProjectsPage() {
 
       const proj_res = res
         .filter((project) => project !== null) // Remove nulls
-        .map((project) => JSON.parse(project as string)); // Parse JSON strings
-
+        .map((project) => 
+          typeof project === "string" ? JSON.parse(project) : project
+        );
       projects = proj_res[0];
 
       console.log("values");
-      console.log(projects);
       console.log(typeof(projects), typeof(projects[0]));
     } else {
       console.warn("No keys to fetch with mget.");

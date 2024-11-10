@@ -10,6 +10,7 @@ export const nav = [
     { name: "About", href: "/about" },
     {name: "Research", href: "/research"},
     {name: "Work Experience", href: "/work"},
+	{name: "Projects", href:"/projects"},
     { name: "Contact", href: "/contact" }
 ];
 

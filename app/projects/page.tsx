@@ -8,7 +8,7 @@ const redis = Redis.fromEnv();
 
 export const revalidate = 60;
 export default async function ProjectsPage() {
-    const keys = ["work"];
+    const keys = ["projects"];
 
     let projects: Project[] = [];
     
@@ -21,8 +21,8 @@ export default async function ProjectsPage() {
       const proj_res = res
         .filter((project) => project !== null) // Remove nulls
         .map((project) => 
-          typeof project === "string" ? JSON.parse(project) : project
-        );
+            typeof project === "string" ? JSON.parse(project) : project
+          );
 
       projects = proj_res[0];
 
@@ -40,15 +40,14 @@ export default async function ProjectsPage() {
   const others = projects.filter((p: Project) => p.priority >= 4);
 
   return (
-    <div className="relative pb-16" style={{paddingTop: "40rem"}}>
+    <div className="relative pb-16" style={{paddingTop: "35rem"}}>
       <div className="lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
         <div className="lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tightsm:text-4xl main-text" style={{color: "var(--text-color)"}}>
-            Work Experience
+            Projects
           </h2>
           <p className="sub-text" style={{textAlign: "center"}}>
-            Both during my undergraduate degree, as well as after graduation, I worked for a variety of companies.
-            Below you'll find some information about these experiences. To download my full resume please click <a href="/resume/Anna Kis Resume.pdf" download="Anna Kis Resume.pdf" style={{color: "white"}}> here </a>.
+			    Below you'll find some of the projects I've worked on throughout the years.
           </p>
         </div>
         <div className="w-full h-px bg-zinc-800" />

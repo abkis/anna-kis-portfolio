@@ -2,7 +2,7 @@
 
 export type Project ={
     id: string,
-    index: number,
+    //index: number,
     name: string,
     content: string,
     priority: number,

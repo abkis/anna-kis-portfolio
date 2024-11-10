@@ -62,6 +62,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={[inter.variable, calSans.variable].join(" ")} suppressHydrationWarning style={{height:"100%"}}>
         <head>
+        <script src="https://kit.fontawesome.com/600e3d2b49.js" crossOrigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
           <Analytics />
         </head>
         <body
@@ -74,7 +76,7 @@ export default function RootLayout({
             <ThemeProvider>
             <Navigation />
               <Background particles={true}>
-                <div className="main" style={{flexGrow: 1, marginLeft: "10%", marginRight: "10%"}}>
+                <div className="main" style={{flexGrow: 1, /*marginLeft: "10%", marginRight: "10%", */ width: "100%"}}>
                   {children}
                 </div>
               </Background>

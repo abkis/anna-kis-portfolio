@@ -8,5 +8,6 @@ export type Project ={
     priority: number,
     slug: string, // link to page,
     start?: string,
-    end?: string
+    end?: string,
+    filename?: string,
 }

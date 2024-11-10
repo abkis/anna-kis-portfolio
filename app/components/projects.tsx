@@ -4,6 +4,9 @@ import { Eye } from "lucide-react";
 import Link from "next/link";
 import { Project } from "../../types/types";
 import "../../global.css";
+import { Button } from "@chakra-ui/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
 
 export const Projects = ({featured, top2, top3, others, views} : {featured : Project, top2 : Project, top3 : Project, others : Project[], views : Record<string, number>}) => {
     return( 
@@ -61,6 +64,19 @@ export const Projects = ({featured, top2, top3, others, views} : {featured : Pro
                     Read more <span aria-hidden="true">&rarr;</span>
                   </p>
                 </div>
+                <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8">
+                  {
+                    featured.filename ?
+                  
+                  (<Button
+                    className="text-[var(--sub-text-color)] hover:text-[var(--hover-color)]"
+                  >
+                    <a href={`/project_files/${featured.filename}`} download={`${featured.filename}`}>
+                    <FontAwesomeIcon icon={faFilePdf} className="mr-2" />
+                    </a>
+                  </Button>) : null   
+                  }             
+                  </div>
               </article>
             </Link>
           </Card>
@@ -68,6 +84,19 @@ export const Projects = ({featured, top2, top3, others, views} : {featured : Pro
             {[top2, top3].map((project) => (
               <Card key={project.slug}>
                 <Article project={project} views={views[project.slug] ?? 0} />
+                <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8">
+                {
+                    project.filename ?
+                  
+                  (<Button
+                    className="text-[var(--sub-text-color)] hover:text-[var(--hover-color)]"
+                  >
+                    <a href={`/project_files/${project.filename}`} download={`${project.filename}`}>
+                    <FontAwesomeIcon icon={faFilePdf} className="mr-2" />
+                    </a>
+                  </Button>) : null   
+                  }                   
+                  </div>
               </Card>
             ))}
           </div>
@@ -82,6 +111,19 @@ export const Projects = ({featured, top2, top3, others, views} : {featured : Pro
               .map((project : Project) => (
                 <Card key={project.slug}>
                   <Article project={project} views={views[project.slug] ?? 0} />
+                  <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8">
+                  {
+                    project.filename ?
+                  
+                  (<Button
+                    className="text-[var(--sub-text-color)] hover:text-[var(--hover-color)]"
+                  >
+                    <a href={`/project_files/${project.filename}`} download={`${project.filename}`}>
+                    <FontAwesomeIcon icon={faFilePdf} className="mr-2" />
+                    </a>
+                  </Button>) : null   
+                  }                
+                  </div>                
                 </Card>
               ))}
           </div>
@@ -91,6 +133,19 @@ export const Projects = ({featured, top2, top3, others, views} : {featured : Pro
               .map((project: Project) => (
                 <Card key={project.slug}>
                   <Article project={project} views={views[project.slug] ?? 0} />
+                  <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8">
+                  {
+                    project.filename ?
+                  
+                  (<Button
+                    className="text-[var(--sub-text-color)] hover:text-[var(--hover-color)]"
+                  >
+                    <a href={`/project_files/${project.filename}`} download={`${project.filename}`}>
+                    <FontAwesomeIcon icon={faFilePdf} className="mr-2" />
+                    </a>
+                  </Button>) : null   
+                  }    
+                  </div>                
                 </Card>
               ))}
           </div>
@@ -100,6 +155,19 @@ export const Projects = ({featured, top2, top3, others, views} : {featured : Pro
               .map((project: Project) => (
                 <Card key={project.slug}>
                   <Article project={project} views={views[project.slug] ?? 0} />
+                  <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8">
+                  {
+                    project.filename ?
+                  
+                  (<Button
+                    className="text-[var(--sub-text-color)] hover:text-[var(--hover-color)]"
+                  >
+                    <a href={`/project_files/${project.filename}`} download={`${project.filename}`}>
+                    <FontAwesomeIcon icon={faFilePdf} className="mr-2" />
+                    </a>
+                  </Button>) : null   
+                  }    
+                  </div>                
                 </Card>
               ))}
           </div>

@@ -1,17 +1,14 @@
 
-"use client";
-import {useTheme} from "../components/theme";
-
 export default function About() {
-	const {theme} = useTheme();
 	return (
 		<div>
-		<h2 className={`text-3xl font-bold tracking-tight sm:text-4xl ${theme.text}`}>
-			About Me
-		</h2>
-		<p className={`mt-4 ${theme.subText}`} style={{textAlign: "center"}}>
-			Who am I?!?!
-		</p>
+			<h2 className="text-3xl font-bold tracking-tightsm:text-4xl main-text" style={{color: "var(--text-color)", width: "100%"}}>
+			About
+			</h2>
+			<div className="w-full h-px bg-zinc-800" />
+			<p className="sub-text" style={{textAlign: "center"}}>
+			About me...
+			</p>
 		</div>
-	);
+	  );
 }

@@ -10,18 +10,16 @@ export const Article: React.FC<{project : Project}> = ({ project }) => {
 					<span className="text-xs duration-1000 group-hover:text-white group-hover:border-zinc-200 drop-shadow-orange" style={{color: "var(--text-color)"}}>
 					{project.start ? (
                     <div>
-                        <time dateTime={new Date(project.start).toISOString()}>
-                        {Intl.DateTimeFormat("hu-HU", {
-                            dateStyle: "medium",
-                        }).format(new Date(project.start))}
-                        </time>
-                        {" - "}
-                        {project.end ? (
-                        <time dateTime={new Date(project.end).toISOString()}>
-                            {Intl.DateTimeFormat("hu-HU", {
-                            dateStyle: "medium",
-                            }).format(new Date(project.end))}
-                        </time>
+						<time dateTime={new Date(project.start).toISOString()}>
+						{new Date(project.start).getFullYear()}/
+						{(new Date(project.start).getMonth() + 1).toString().padStart(2, '0')}
+						</time>
+						{" – "}
+						{project.end ? (
+						<time dateTime={new Date(project.end).toISOString()}>
+							{new Date(project.end).getFullYear()}/
+							{(new Date(project.end).getMonth() + 1).toString().padStart(2, '0')}
+						</time>
                         ) : (
                         <span>ongoing</span>
                         )}

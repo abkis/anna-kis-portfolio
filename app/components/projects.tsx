@@ -15,20 +15,18 @@ export const Projects = ({featured, top2, top3, others} : {featured : Project, t
           (<Card>
             <article className="relative w-full h-full p-4 md:p-8">
               <div className="flex items-center justify-between gap-2">
-                <div className="text-xs" style={{color: "var(--text-color)"}} >
+                <div className="text-xs duration-1000 group-hover:text-white group-hover:border-zinc-200 drop-shadow-orange" style={{color: "var(--text-color)"}}>
                 {featured.start ? (
                   <div>
-                      <time dateTime={new Date(featured.start).toISOString()}>
-                      {Intl.DateTimeFormat("hu-HU", {
-                          dateStyle: "medium",
-                      }).format(new Date(featured.start))}
-                      </time>
-                      {" - "}
-                      {featured.end ? (
+                    <time dateTime={new Date(featured.start).toISOString()}>
+                      {new Date(featured.start).getFullYear()}/
+                      {(new Date(featured.start).getMonth() + 1).toString().padStart(2, '0')}
+                    </time>
+                    {" – "}
+                    {featured.end ? (
                       <time dateTime={new Date(featured.end).toISOString()}>
-                          {Intl.DateTimeFormat("hu-HU", {
-                          dateStyle: "medium",
-                          }).format(new Date(featured.end))}
+                        {new Date(featured.end).getFullYear()}/
+                        {(new Date(featured.end).getMonth() + 1).toString().padStart(2, '0')}
                       </time>
                       ) : (
                       <span>ongoing</span>

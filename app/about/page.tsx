@@ -1,18 +1,14 @@
-"use client";
-import { Github, Mail, Linkedin } from "lucide-react";
-import Link from "next/link";
-import { Navigation } from "../components/nav";
-import { Card } from "../components/card";
 
-export default function Example() {
+export default function About() {
 	return (
-		<div className=" bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
-			<Navigation />
-			<div className="container flex items-center justify-center min-h-screen px-4 mx-auto">
-				<h1 style={{ fontSize: "80%", color: "white" }}>
-					About Me
-				</h1>
-			</div>
+		<div style={{width:"95%"}}>
+			<h2 className="text-3xl font-bold tracking-tightsm:text-4xl main-text" style={{color: "var(--text-color)", width: "100%"}}>
+			About
+			</h2>
+			<div className="w-full h-px bg-zinc-800" />
+			<p className="sub-text" style={{textAlign: "center"}}>
+			I'm a math grad student at the Ohio State University with a background in pure math and computer science.
+			</p>
 		</div>
-	);
+	  );
 }

@@ -1,14 +1,8 @@
 import type { Project } from "../../types/types";
 import Link from "next/link";
-import { Eye, View } from "lucide-react";
 import "../../global.css";
 
-type Props = {
-	project: Project;
-	views: number;
-};
-
-export const Article: React.FC<Props> = ({ project, views }) => {
+export const Article: React.FC<{project : Project}> = ({ project }) => {
 	return (
 		<Link href={project.slug.startsWith("http") ? project.slug : `/projects/${project.slug}`} target={project.slug == "" ? "_self" : "_blank"}>
 			<article className="p-4 md:p-8">
@@ -35,10 +29,6 @@ export const Article: React.FC<Props> = ({ project, views }) => {
                     ) : (
                     <span>SOON</span>
                     )}
-					</span>
-					<span className="text-zinc-500 text-xs  flex items-center gap-1">
-						<Eye className="w-4 h-4" />{" "}
-						{Intl.NumberFormat("en-US", { notation: "compact" }).format(views)}
 					</span>
 				</div>
 				<h2 className="z-20 text-xl font-medium duration-1000 lg:text-3xl group-hover:text-white font-display" style={{color: "var(--text-color)"}}>

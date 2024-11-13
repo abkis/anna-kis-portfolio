@@ -39,7 +39,7 @@ export default async function ProjectsPage() {
   const others = projects.filter((p: Project) => p.priority >= 4);
 
   return (
-    <div className="relative pb-16" style={{paddingTop: "35rem"}}>
+    <div className="relative pb-16" style={{paddingTop: "25rem"}}>
       <div className="lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
         <div className="lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tightsm:text-4xl main-text" style={{color: "var(--text-color)"}}>
@@ -51,7 +51,7 @@ export default async function ProjectsPage() {
           </p>
         </div>
         <div className="w-full h-px bg-zinc-800" />
-        <Projects featured={featured} top2={top2} top3={top3} others={others} views={views}/>
+        <Projects featured={featured} top2={top2} top3={top3} others={others}/>
       </div>
     </div>
   );

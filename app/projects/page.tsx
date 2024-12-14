@@ -39,7 +39,7 @@ export default async function ProjectsPage() {
 
   return (
     <div className="relative pb-16" >
-      <div className="lg:px-8 md:space-y-16 md:pt-24 lg:pt-32" style={{paddingTop: "25rem"}}>
+      <div className="lg:px-8 md:space-y-16 md:pt-24 lg:pt-32" style={{paddingTop: "35rem"}}>
         <div className="lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tightsm:text-4xl main-text" style={{color: "var(--text-color)"}}>
             Projects

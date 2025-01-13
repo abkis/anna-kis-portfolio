@@ -6,7 +6,10 @@ const nextConfig = {
 	experimental: {
 		mdxRs: true,
 		optimizePackageImports: ["@chakra-ui/react"],
-	}
+	},
+	images: {
+		remotePatterns: [{ hostname: "*.public.blob.vercel-storage.com" }],
+	},
 };
 
 export default withContentlayer(nextConfig);

@@ -1,5 +1,5 @@
 "use client";
-import { ArrowLeft } from "lucide-react";
+import { Home } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { usePathname } from 'next/navigation';
@@ -18,7 +18,7 @@ export const nav = [
 export const Navigation: React.FC = () => {
 	const ref = useRef<HTMLElement>(null);
 	const [isIntersecting, setIntersecting] = useState(true);
-	const [arrow, setArrow] = useState(false);
+	const [homeButton, setHomeButton] = useState(false);
 	const pathname = usePathname();
 	const [currentModeIndex, setCurrentModeIndex] = useState(0);
 	const {theme, setTheme} = useTheme();
@@ -34,9 +34,9 @@ export const Navigation: React.FC = () => {
   
 	const buttonMode = modes[(currentModeIndex + 1) % modes.length];
 
-	// display back arrow only if on non-home page
+	// display home button only if on non-home page
 	useEffect(() => {
-	  	setArrow(pathname !== '/');
+	  	setHomeButton(pathname !== '/');
 	}, [pathname]);
 
 	useEffect(() => {
@@ -77,12 +77,12 @@ export const Navigation: React.FC = () => {
 							/>
 					</div>
 					{
-						arrow?
+						homeButton?
 						<Link
 							href="/"
 							className="duration-200 text-zinc-300 hover:text-zinc-100"
 						>
-							<ArrowLeft className="w-6 h-6 " />
+							<Home className="w-6 h-6 " />
 						</Link> :
 						null
 					}

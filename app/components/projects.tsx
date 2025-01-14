@@ -1,3 +1,4 @@
+'use client';
 import { Card } from "../components/card";
 import { Article } from "../components/article";
 import Link from "next/link";
@@ -6,10 +7,34 @@ import "../../global.css";
 import { Button } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+import ProjectModal from "./projectModal";
 
 export const Projects = ({featured, top2, top3, others} : {featured : Project, top2 : Project, top3 : Project, others : Project[]}) => {
-    return( 
-        <div>
+    // set up modal functions to open new modal on click
+    const [modalOpen, setModalOpen] = useState(false); // handles open/close of modal
+    const [modalProject, setModalProject] = useState<Project>(featured);
+
+    // open modal on click of image
+    const openModal = (project : Project): void =>{
+      setModalOpen(true);
+      setModalProject(project);
+    }
+  
+    const closeModal = (): void=>{
+      setModalOpen(false);
+    }  
+    
+  return( 
+    <div>
+        { modalOpen ? (
+          <ProjectModal 
+          open={openModal}
+          closeModal={closeModal} 
+          project={modalProject}
+          />
+        ) : 
+        (<div>
         <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
           { featured ? 
           (<Card>
@@ -38,7 +63,10 @@ export const Projects = ({featured, top2, top3, others} : {featured : Project, t
 
                 </div>
               </div>
-              <Link href={featured.slug.startsWith("http") ? featured.slug : `/projects/${featured.slug}`}>
+              <Link href="#" onClick={(e) => {
+                e.preventDefault(); // Prevents navigation
+                openModal(featured);
+              }}>
               <h2
                 id="featured-post"
                 className="mt-4 text-3xl font-bold group-hover:text-white sm:text-4xl font-display"
@@ -173,6 +201,6 @@ export const Projects = ({featured, top2, top3, others} : {featured : Project, t
               ))}
           </div>
         </div>
-        </div>
-    )
+        </div>)}
+        </div>)
 };

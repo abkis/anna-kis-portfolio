@@ -41,7 +41,7 @@ export default function About() {
                 have completed a variety of internships, including computer science and research positions.
                 <br/>
                 In my free time I enjoy hiking and spending time outdoors, as well as reading. I'm currently in 
-                a Russian Literature phase, with Dostojevszkij being a personal favorite.
+                a Russian Literature phase, with Dosztojevszkij being a personal favorite.
                 </p>
             </div>
             <div className="w-full h-px bg-zinc-800" />

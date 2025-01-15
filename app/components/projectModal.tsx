@@ -23,7 +23,7 @@ const ProjectModal = ({ open, closeModal, project} : {open : any, closeModal : a
       <Box
         style={{
           position: "relative",
-          width: "35%",
+          width: "55%",
           height: "55%",
           backgroundColor: "white", // Ensure the modal content has a background
           borderRadius: "12px",

@@ -38,7 +38,9 @@ export const Projects = ({featured, top2, top3, others} : {featured : Project, t
 
                 </div>
               </div>
-              <Link href={featured.slug.startsWith("http") ? featured.slug : `/projects/${featured.slug}`}>
+              <Link
+                href={ featured.slug.startsWith("http") ? featured.slug : `/projects/${featured.slug}`}
+                target={featured.slug == "" ? "_self" : "_blank"}>
               <h2
                 id="featured-post"
                 className="mt-4 text-3xl font-bold group-hover:text-white sm:text-4xl font-display"

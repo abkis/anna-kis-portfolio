@@ -2,7 +2,6 @@
 
 export type Project ={
     id: string,
-    //index: number,
     name: string,
     content: string,
     priority: number,
@@ -10,4 +9,6 @@ export type Project ={
     start?: string,
     end?: string,
     filename?: string,
+    index: number, // unique index in list
+    abstract: string
 }

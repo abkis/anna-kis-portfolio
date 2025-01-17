@@ -50,7 +50,7 @@ export default async function ProjectsPage() {
           </p>
         </div>
         <div className="w-full h-px bg-zinc-800" />
-        <Projects featured={featured} top2={top2} top3={top3} others={others}/>
+        <Projects featured={featured} top2={top2} top3={top3} others={others} page={"work"}/>
       </div>
     </div>
   );

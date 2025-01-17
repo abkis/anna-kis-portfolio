@@ -7,8 +7,9 @@ import { Button } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
 
-export const Projects = ({featured, top2, top3, others} : {featured : Project, top2 : Project, top3 : Project, others : Project[]}) => {
-    return( 
+export const Projects = ({featured, top2, top3, others, page} : {featured : Project, top2 : Project, top3 : Project, others : Project[], page: string}) => {
+  console.log("page: ", page);  
+  return( 
         <div>
         <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
           { featured ? 
@@ -39,7 +40,8 @@ export const Projects = ({featured, top2, top3, others} : {featured : Project, t
                 </div>
               </div>
               <Link
-                href={ featured.slug.startsWith("http") ? featured.slug : `/projects/${featured.slug}`}
+                href={{pathname: featured.slug.startsWith("http") ? featured.slug : `/${page}/${featured.slug}`,
+                query: { index: featured.index}}}
                 target={featured.slug == "" ? "_self" : "_blank"}>
               <h2
                 id="featured-post"
@@ -79,7 +81,7 @@ export const Projects = ({featured, top2, top3, others} : {featured : Project, t
           <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 ">
             {[top2, top3].map((project) =>  project ? (
               <Card key={project.slug}>
-                <Article project={project} />
+                <Article project={project} page={page}/>
                 <div className="absolute bottom-4 right-4 md:bottom-15 md:right-8">
                 {
                     project.filename ?
@@ -113,7 +115,7 @@ export const Projects = ({featured, top2, top3, others} : {featured : Project, t
               .filter((_: any, i: number) => i % 3 === 0)
               .map((project : Project) => (
                 <Card key={project.slug}>
-                  <Article project={project} />
+                  <Article project={project} page={page}/>
                   <div className="absolute bottom-4 right-4 md:bottom-15 md:right-8">
                   {
                     project.filename ?
@@ -135,7 +137,7 @@ export const Projects = ({featured, top2, top3, others} : {featured : Project, t
               .filter((_: any, i: number) => i % 3 === 1)
               .map((project: Project) => (
                 <Card key={project.slug}>
-                  <Article project={project} />
+                  <Article project={project} page={page} />
                   <div className="absolute bottom-4 right-4 md:bottom-15 md:right-8">
                   {
                     project.filename ?
@@ -157,7 +159,7 @@ export const Projects = ({featured, top2, top3, others} : {featured : Project, t
               .filter((_: any, i: number) => i % 3 === 2)
               .map((project: Project) => (
                 <Card key={project.slug}>
-                  <Article project={project} />
+                  <Article project={project} page={page}/>
                   <div className="absolute bottom-4 right-4 md:bottom-10 md:right-8">
                   {
                     project.filename ?

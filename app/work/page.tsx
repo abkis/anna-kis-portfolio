@@ -14,7 +14,6 @@ export default async function ProjectsPage() {
         
     if (keys.length > 0) {
       const res = await redis.mget<string[]>(...keys);
-      console.log("res: ", res);
 
       const proj_res = res
         .filter((project) => project !== null) // Remove nulls
@@ -23,15 +22,11 @@ export default async function ProjectsPage() {
         );
 
       projects = proj_res[0];
-
-      console.log("values");
-      console.log(typeof(projects), typeof(projects[0]));
     } else {
       console.warn("No keys to fetch with mget.");
     }   
 
   const featured = projects.find((project: Project) => project.priority === 1)!;
-  console.log(featured);
   const top2 = projects.find((project: Project) => project.priority === 2)!;
   const top3 = projects.find((project: Project) => project.priority === 3)!;
 
@@ -50,7 +45,7 @@ export default async function ProjectsPage() {
           </p>
         </div>
         <div className="w-full h-px bg-zinc-800" />
-        <Projects featured={featured} top2={top2} top3={top3} others={others}/>
+        <Projects featured={featured} top2={top2} top3={top3} others={others} page={"work"}/>
       </div>
     </div>
   );

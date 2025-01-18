@@ -11,12 +11,9 @@ export default async function ProjectsPage() {
     const keys = ["research"];
 
     let projects: Project[] = [];
-    
-    let views: Record<string, number> = {};
-    
+        
     if (keys.length > 0) {
       const res = await redis.mget<string[]>(...keys);
-      console.log("res: ", res);
 
       const proj_res = res
         .filter((project) => project !== null) // Remove nulls
@@ -25,8 +22,6 @@ export default async function ProjectsPage() {
         );
       projects = proj_res[0];
 
-      console.log("values");
-      console.log(typeof(projects), typeof(projects[0]));
     } else {
       console.warn("No keys to fetch with mget.");
     }   
@@ -48,10 +43,13 @@ export default async function ProjectsPage() {
           <p className="sub-text" style={{textAlign: "center"}}>
 			    My research interests include group theory and representation theory. Below you will find
           some information on my previous research endeavours.
+          <p className="sub-text" style={{textAlign: "center"}}>
+          You can download my CV <a href={`/resume/Anna Kis CV.pdf`} download={`Anna Kis CV.pdf`} style={{color: "white"}}> here </a>.
+          </p>
           </p>
         </div>
         <div className="w-full h-px bg-zinc-800" />
-        <Projects featured={featured} top2={top2} top3={top3} others={others}/>
+        <Projects featured={featured} top2={top2} top3={top3} others={others} page={"research"}/>
       </div>
     </div>
   );

@@ -10,5 +10,11 @@ export type Project ={
     end?: string,
     filename?: string,
     index: number, // unique index in list
-    abstract: string
+    abstract?: string,
+    links?: LinkDescr[]
+}
+
+export type LinkDescr = {
+    name: "string",
+    link: "string"
 }

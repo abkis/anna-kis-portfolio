@@ -1,16 +1,23 @@
 'use client';
-import {Project} from 'types/types';
 import { useParams, useSearchParams } from 'next/navigation';
+import {ProjectPage} from "../../components/projectPage";
+import {FourOFour} from "../../components/fourofour";
 
-
-const ProjectPage = () => {
+const WorkPage = () => {
   const slug = (useParams()?? "") as string; // Retrieve the dynamic segment from the URL
+  const searchParams = useSearchParams();
+  var index = searchParams?.get('index') || -1;
+  index = Number(index);
+  const page = "work";
+  if (page == undefined || index == -1){
+    return (<FourOFour/>)
+  }
 
   return (
     <div>
-      <h1>Hi there</h1>
+      <ProjectPage page={page} index={index} slug={slug}/>
     </div>
   );
 };
 
-export default ProjectPage;
+export default WorkPage;

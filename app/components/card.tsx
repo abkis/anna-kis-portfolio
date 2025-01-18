@@ -2,13 +2,15 @@
 import {
 	motion,
 	useMotionTemplate,
-	useMotionValue,
 	useSpring,
 } from "framer-motion";
+import React, { FC, PropsWithChildren } from "react";
 
-import { MouseEventHandler, PropsWithChildren } from "react";
-
-export const Card: React.FC<PropsWithChildren> = ({ children }) => {
+interface CardProps extends PropsWithChildren {
+	dummy: boolean;
+  }
+  
+export const Card: FC<CardProps> = ({ children, dummy }) => {
 	const mouseX = useSpring(0, { stiffness: 500, damping: 100 });
 	const mouseY = useSpring(0, { stiffness: 500, damping: 100 });
 
@@ -19,6 +21,16 @@ export const Card: React.FC<PropsWithChildren> = ({ children }) => {
 	}
 	const maskImage = useMotionTemplate`radial-gradient(240px at ${mouseX}px ${mouseY}px, white, transparent)`;
 	const style = { maskImage, WebkitMaskImage: maskImage };
+
+	if (dummy){
+		return (
+			<div
+				className="overflow-hidden relative duration-700 border rounded-xl group md:gap-8 border-zinc-600 "
+			>
+				{children}
+			</div>
+		);
+	}
 
 	return (
 		<div

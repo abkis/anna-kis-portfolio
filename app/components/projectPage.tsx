@@ -1,4 +1,4 @@
-import { Project } from "../../types/types";
+import { LinkDescr, Project } from "../../types/types";
 import "../../global.css";
 import { Redis } from "@upstash/redis";
 import { FourOFour } from "./fourofour";
@@ -23,9 +23,9 @@ export const ProjectPage = async ({page, index, slug} : {page:string, index: num
         return (<FourOFour/>);
     }
     let project: Project = projects[index];
-    if (project.name != slug){
+    if (project.slug != slug){
         projects.forEach(p => {
-            if (p.name == slug){
+            if (p.slug == slug){
                 project = p;
                 index = p.index;
             }
@@ -33,17 +33,22 @@ export const ProjectPage = async ({page, index, slug} : {page:string, index: num
     }
   
     return (
-    <div className="relative pb-16" style={{paddingTop: "25rem"}}>
+    <div className="relative pb-16" style={{paddingTop: "5rem"}}>
     <div className="lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
         <div className="lg:mx-0">
         <h2 className="text-3xl font-bold tracking-tightsm:text-4xl main-text" style={{color: "var(--text-color)"}}>
             {project.name}
         </h2>
+        <div className="w-full h-px bg-zinc-800" />
         <p className="sub-text" style={{textAlign: "center"}}>
-            {project.abstract}
+            {project.content}
         </p>
         </div>
-        <div className="w-full h-px bg-zinc-800" />
+        <div className="w-full h-px bg-zinc-800"/>
+        {project.abstract ? (<p className="sub-text" style={{textAlign: "center"}}>
+            <b>Abstract: </b>
+            {project.abstract}
+        </p>) : null}
         {
             project.filename ?
         
@@ -52,8 +57,19 @@ export const ProjectPage = async ({page, index, slug} : {page:string, index: num
         You can download a related research report <a href={`/project_files/${project.filename}.pdf`} download={`${project.filename}.pdf`} style={{color: "white"}}> here </a>.
         </p>) : null   
         }    
-        <p>
-
+        <p className="sub-text" style={{textAlign: "center"}}>
+        {
+            project.links ? (
+                <>
+                    <b>Relevant Links: </b>
+                    {project.links.map((val: LinkDescr) => (
+                        <a href={val.link} target="_blank" rel="noopener noreferrer" key={val.link}>
+                            {val.name}
+                        </a>
+                    ))}
+                </>
+            ) : null
+        }
         </p>
     </div>
     </div>

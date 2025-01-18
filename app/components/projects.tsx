@@ -46,7 +46,7 @@ export const Projects = ({featured, top2, top3, others, page} : {featured : Proj
                       ? ""
                       : {
                           pathname: `/${page}/${featured.slug}`,
-                          query: featured.index ? { index: featured.index } : "",
+                          query: featured.slug ? { index: featured.index } : "",
                         }
                   }
                   target={featured.slug.startsWith("http") ? "_blank" : undefined}

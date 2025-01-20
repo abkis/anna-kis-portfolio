@@ -6,7 +6,7 @@ export const Article: React.FC<{project : Project, page: string}> = ({ project, 
 	return (
 		<Link href={{pathname: project.slug.startsWith("http") ? project.slug :
 			project.slug == "" ? null : `/${page}/${project.slug}`,
-			query: project.slug ? { index: project.index } : "",
+			query: project.slug != "" ? { index: project.index } : "",
 		}}
 		target={project.slug.startsWith("http") ? "_blank" : "_self"}>			
 		<article className="p-4 md:p-8">

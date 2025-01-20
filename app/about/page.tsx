@@ -42,6 +42,11 @@ export default function About() {
                 <br/>
                 In my free time I enjoy hiking and spending time outdoors, as well as reading. I'm currently in 
                 a Russian Literature phase, with Dosztojevszkij being a personal favorite.
+                <br/>
+                Please click <a href={`/resume/Anna Kis CV.pdf`} download={`Anna Kis CV.pdf`} style={{color: "white"}}> here </a> to download my CV, 
+                or <a href={`/resume/Anna Kis Resume.pdf`} download={`Anna Kis Resume.pdf`} style={{color: "white"}}> here </a> for my resume.
+                <br/>
+                Please note: This website was adapted from the starter template found <a href="https://vercel.com/templates/next.js/nextjs-portfolio-pageview-counter" style={{color: "white"}}> here </a>.
                 </p>
             </div>
             <div className="w-full h-px bg-zinc-800" />
